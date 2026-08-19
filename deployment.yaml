@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: terraform-aws-project-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: terraform-aws-project-app
+  template:
+    metadata:
+      labels:
+        app: terraform-aws-project-app
+    spec:
+      containers:
+        - name: app
+          image: 321613316920.dkr.ecr.ap-south-1.amazonaws.com/terraform-aws-project-app:v1
+          ports:
+            - containerPort: 8080
